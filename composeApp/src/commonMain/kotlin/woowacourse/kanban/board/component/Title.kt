@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
+import woowacourse.kanban.board.CustomColor
 
 @Composable
 fun Title(title: String) {
@@ -13,7 +14,7 @@ fun Title(title: String) {
         text = title,
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold,
-        color = Color(0xFF101828),
+        color = CustomColor.TITLE.color,
         maxLines = 1,
         overflow = TextOverflow.Ellipsis,
     )

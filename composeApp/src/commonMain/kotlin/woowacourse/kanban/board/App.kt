@@ -78,7 +78,7 @@ fun TaskCard(
         colors = CardDefaults.cardColors(
             containerColor = Color.White,
         ),
-        border = BorderStroke(1.dp, Color(0xffE5E7EB)),
+        border = BorderStroke(1.dp, CustomColor.CARD_BORDER.color),
         shape = RoundedCornerShape(10.dp),
     ) {
         Column(
@@ -91,7 +91,7 @@ fun TaskCard(
             Tags(tags)
             HorizontalDivider(
                 thickness = 1.dp,
-                color = Color(0xFFF3F4F6)
+                color = CustomColor.DIVIDER.color
             )
             Profile(nickname)
         }

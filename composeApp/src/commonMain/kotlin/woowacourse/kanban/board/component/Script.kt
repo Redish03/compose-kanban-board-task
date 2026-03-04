@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
+import woowacourse.kanban.board.CustomColor
 
 
 @Composable
@@ -14,7 +15,7 @@ fun Script(script: String?) {
         text = script,
         fontSize = 14.sp,
         fontWeight = FontWeight.Normal,
-        color = Color(0xff4A5565),
+        color = CustomColor.SCRIPT.color,
         maxLines = 2,
         overflow = TextOverflow.Ellipsis,
     )
