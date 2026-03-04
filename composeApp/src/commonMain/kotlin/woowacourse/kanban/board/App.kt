@@ -35,12 +35,20 @@ import org.jetbrains.compose.resources.painterResource
 @Composable
 @Preview(showBackground = true)
 fun App() {
+    TaskCard(
+        title = "LazyColumn 컴포넌트 구현",
+        script = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
+        tags = listOf("컴포넌트", "성능"),
+        nickname = "다이노")
 
 }
 
 @Composable
-@Preview
-fun TaskCard() {
+fun TaskCard(
+    title: String,
+    script: String?,
+    tags: List<String>?,
+    nickname: String) {
     Card(
         modifier = Modifier
             .width(286.dp),
@@ -51,10 +59,10 @@ fun TaskCard() {
         shape = RoundedCornerShape(10.dp)
     ) {
         Column {
-            Text("title")
-            Text("script")
+            Text(title)
+            if(script != null) Text(script)
+            if(tags != null) // TODO : TAG 구현
             HorizontalDivider()
-
         }
     }
 }
