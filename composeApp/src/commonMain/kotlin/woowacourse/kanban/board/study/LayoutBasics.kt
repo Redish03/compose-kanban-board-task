@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -40,7 +42,7 @@ fun TextExample() {
 @Preview
 fun ImageExample() {
     Image(
-        painter = painterResource(Res.drawable.woowacourse),
+        Icons.Default.Favorite,
         contentDescription = "설명 텍스트 (접근성을 위해 중요!)",
     )
 }
@@ -65,8 +67,8 @@ fun ButtonExample2() {
         },
     ) {
         Image(
-            painter = painterResource(Res.drawable.woowacourse),
-            contentDescription = "버튼 이미지",
+            Icons.Default.Favorite,
+            contentDescription = "버튼 예시",
         )
     }
 }
@@ -102,7 +104,7 @@ fun HeartIconExample() {
     ) {
         Row() {
             Image(
-                painter = painterResource(Res.drawable.woowacourse),
+                Icons.Default.Favorite,
                 contentDescription = "버튼 & 이미지 & 텍스트",
             )
             Text("좋아요")
