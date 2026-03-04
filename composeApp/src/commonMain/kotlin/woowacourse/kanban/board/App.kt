@@ -26,8 +26,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kanbanboard.composeapp.generated.resources.Res
 import kanbanboard.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
@@ -59,7 +61,12 @@ fun TaskCard(
         shape = RoundedCornerShape(10.dp)
     ) {
         Column {
-            Text(title)
+            Text(
+                text = title,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF101828)
+            )
             if(script != null) Text(script)
             if(tags != null) // TODO : TAG 구현
             HorizontalDivider()

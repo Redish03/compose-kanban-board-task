@@ -6,7 +6,8 @@
     - [x] 배경색 설정
     - [x] Card 테두리 색상, radius 설정
 - [ ] title 구현
-    - [ ] maxLine 1줄로 제한, 말줄임표 구현
+  - [x] 폰트 크기, 색상 설정
+  - [ ] maxLine 1줄로 제한, 말줄임표 구현
 - [ ] script 구현
     - [ ] maxLine 2줄로 제한, 말줄임표 구현
 - [ ] tag 구현
