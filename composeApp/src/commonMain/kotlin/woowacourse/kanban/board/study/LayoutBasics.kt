@@ -1,6 +1,8 @@
 package woowacourse.kanban.board.study
 
 import androidx.compose.foundation.Image
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -17,11 +19,13 @@ import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun TextExample() {
-    Text(text = "Jetpack Compose Text 실습",
+    Text(
+        text = "Jetpack Compose Text 실습",
         color = Color.Blue,
         fontSize = 22.sp,
         fontStyle = FontStyle.Italic,
-        fontWeight = FontWeight.Bold)
+        fontWeight = FontWeight.Bold,
+    )
 }
 
 @Composable
@@ -29,6 +33,28 @@ fun TextExample() {
 fun ImageExample() {
     Image(
         painter = painterResource(Res.drawable.woowacourse),
-        contentDescription = "설명 텍스트 (접근성을 위해 중요!)"
+        contentDescription = "설명 텍스트 (접근성을 위해 중요!)",
     )
+}
+
+@Composable
+fun ButtonExample() {
+    Button(onClick = {
+        println("버튼 클릭!")
+    }) {
+        Text(text = "저장")
+    }
+}
+
+@Composable
+@Preview
+fun ButtonExample2() {
+    Button(onClick = {
+        println("버튼 클릭!")
+    }) {
+        Image(
+            painter = painterResource(Res.drawable.woowacourse),
+            contentDescription = "버튼 이미지",
+        )
+    }
 }
