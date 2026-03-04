@@ -102,6 +102,8 @@ fun TaskCard(
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color(0xff364153),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
         }
