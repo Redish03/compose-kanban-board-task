@@ -7,9 +7,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.layout.size
@@ -52,7 +54,7 @@ fun App() {
     TaskCard(
         title = "LazyColumn 컴포넌트 구현",
         script = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
-        tags = listOf("컴포넌트", "성능", "미나어리ㅏ먼이ㅏㅓㄹ미"),
+        tags = listOf("컴포넌트", "성ㅁㄴㅇㄹ능", "미나어리ㅏ먼이ㅏㅓㄹ미", "아오미나얼", "사무엘ㅁㄴㅇㄹ", "호잇~"),
         nickname = "다이노",
     )
 
@@ -92,11 +94,15 @@ fun TaskCard(
                 overflow = TextOverflow.Ellipsis,
             )
             if (tags != null) {
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
                 ) {
-                    tags.forEach { tag ->
-                        val filteredTag = if (tag.length > 5) tag.substring(0 until 5) else tag
+                    val tagsCount = if(tags.size > 5) 5 else tags.size
+                    for (i in 0 until tagsCount) {
+                        val filteredTag = if (tags[i].length > 5) tags[i].substring(0 until 5) else tags[i]
                         Box(
                             modifier = Modifier
                                 .background(
