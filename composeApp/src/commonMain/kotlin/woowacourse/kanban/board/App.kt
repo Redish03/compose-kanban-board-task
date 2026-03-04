@@ -4,11 +4,13 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -50,7 +52,7 @@ fun App() {
     TaskCard(
         title = "LazyColumn 컴포넌트 구현",
         script = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
-        tags = listOf("컴포넌트", "성능"),
+        tags = listOf("컴포넌트", "성능", "미나어리ㅏ먼이ㅏㅓㄹ미"),
         nickname = "다이노",
     )
 
@@ -89,7 +91,30 @@ fun TaskCard(
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
-            if (tags != null) // TODO : TAG 구현
+            if (tags != null) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    tags.forEach { tag ->
+                        val filteredTag = if (tag.length > 5) tag.substring(0 until 5) else tag
+                        Box(
+                            modifier = Modifier
+                                .background(
+                                    color = Color(0xFFF3F4F6),
+                                    shape = RoundedCornerShape(14.dp),
+                                )
+                                .padding(vertical = 4.dp, horizontal = 6.dp)
+                            ,
+                            ) {
+                            Text(
+                                text = filteredTag,
+                                fontSize = 12.sp,
+                                color = Color(0xFF364153),
+                            )
+                        }
+                    }
+                }
+            }
             HorizontalDivider()
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
