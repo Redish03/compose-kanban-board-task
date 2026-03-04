@@ -68,8 +68,8 @@ fun App() {
 @Composable
 fun TaskCard(
     title: String,
-    script: String?,
-    tags: List<String>?,
+    script: String? = null,
+    tags: List<String>? = null,
     nickname: String,
 ) {
     Card(
