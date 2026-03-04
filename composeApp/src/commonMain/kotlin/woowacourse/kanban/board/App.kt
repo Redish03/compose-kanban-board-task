@@ -3,6 +3,8 @@ package woowacourse.kanban.board
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,13 +24,41 @@ import woowacourse.kanban.board.component.Title
 @Composable
 @Preview(showBackground = true)
 fun App() {
-    TaskCard(
-        title = "LazyColumn 컴포넌트 구현",
-        script = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
-        tags = listOf("컴포넌트", "성ㅁㄴㅇㄹ능", "미나어리ㅏ먼이ㅏㅓㄹ미", "아오미나얼", "사무엘ㅁㄴㅇㄹ", "호잇~"),
-        nickname = "다이노",
-    )
-
+    FlowRow(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(38.dp),
+        maxItemsInEachRow = 4,
+        horizontalArrangement = Arrangement.spacedBy(52.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp),
+    ) {
+        TaskCard(
+            title = "LazyColumn 컴포넌트 구현",
+            script = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
+            tags = listOf("컴포넌트", "성능"),
+            nickname = "다이노",
+        )
+        TaskCard(
+            title = "LazyColumn 컴포넌트 구현",
+            tags = listOf("컴포넌트", "성능"),
+            nickname = "다이노",
+        )
+        TaskCard(
+            title = "LazyColumn 컴포넌트 구현",
+            script = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
+            nickname = "다이노",
+        )
+        TaskCard(
+            title = "LazyColumn 컴포넌트 구현",
+            nickname = "다이노",
+        )
+        TaskCard(
+            title = "너무 너무 긴 제목은 한 줄 까지만 노출시킵니다.",
+            script = "너무 너무 너무 긴 설명은 두 줄까지만 노출하고 말 줄임표로 처리합니다. 두 줄 까지만 노출합니다.",
+            tags = listOf("너무너무", "긴 태그", "최대로", "5자까지", "5개제한임"),
+            nickname = "다이노",
+        )
+    }
 }
 
 @Composable
