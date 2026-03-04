@@ -26,22 +26,27 @@ fun Tags(tags: List<String>?) {
             val tagsCount = if(tags.size > 5) 5 else tags.size
             for (i in 0 until tagsCount) {
                 val filteredTag = if (tags[i].length > 5) tags[i].substring(0 until 5) else tags[i]
-                Box(
-                    modifier = Modifier
-                        .background(
-                            color = Color(0xFFF3F4F6),
-                            shape = RoundedCornerShape(14.dp),
-                        )
-                        .padding(vertical = 4.dp, horizontal = 6.dp)
-                    ,
-                ) {
-                    Text(
-                        text = filteredTag,
-                        fontSize = 12.sp,
-                        color = Color(0xFF364153),
-                    )
-                }
+                TagBox(filteredTag)
             }
         }
+    }
+}
+
+@Composable
+fun TagBox(filteredTag: String) {
+    Box(
+        modifier = Modifier
+            .background(
+                color = CustomColor.TAG_BACKGROUND.color,
+                shape = RoundedCornerShape(14.dp),
+            )
+            .padding(vertical = 4.dp, horizontal = 6.dp)
+        ,
+    ) {
+        Text(
+            text = filteredTag,
+            fontSize = 12.sp,
+            color = CustomColor.TAG_TEXT.color,
+        )
     }
 }
