@@ -48,6 +48,10 @@ import kanbanboard.composeapp.generated.resources.Res
 import kanbanboard.composeapp.generated.resources.compose_multiplatform
 import kanbanboard.composeapp.generated.resources.profile
 import org.jetbrains.compose.resources.painterResource
+import woowacourse.kanban.board.component.Profile
+import woowacourse.kanban.board.component.Script
+import woowacourse.kanban.board.component.Tags
+import woowacourse.kanban.board.component.Title
 
 @Composable
 @Preview(showBackground = true)
@@ -77,92 +81,19 @@ fun TaskCard(
         border = BorderStroke(1.dp, Color(0xffE5E7EB)),
         shape = RoundedCornerShape(10.dp),
     ) {
-        Column {
-            Text(
-                text = title,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF101828),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            if (script != null) Text(
-                text = script,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color(0xff4A5565),
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-            )
-            if (tags != null) {
-                FlowRow(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(4.dp),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    val tagsCount = if(tags.size > 5) 5 else tags.size
-                    for (i in 0 until tagsCount) {
-                        val filteredTag = if (tags[i].length > 5) tags[i].substring(0 until 5) else tags[i]
-                        Box(
-                            modifier = Modifier
-                                .background(
-                                    color = Color(0xFFF3F4F6),
-                                    shape = RoundedCornerShape(14.dp),
-                                )
-                                .padding(vertical = 4.dp, horizontal = 6.dp)
-                            ,
-                            ) {
-                            Text(
-                                text = filteredTag,
-                                fontSize = 12.sp,
-                                color = Color(0xFF364153),
-                            )
-                        }
-                    }
-                }
-            }
+        Column(
+            modifier = Modifier
+                .padding(17.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Title(title)
+            Script(script)
+            Tags(tags)
             HorizontalDivider(
                 thickness = 1.dp,
                 color = Color(0xFFF3F4F6)
             )
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Image(
-                    painter = painterResource(Res.drawable.profile),
-                    contentDescription = "프로필 이미지",
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = nickname,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xff364153),
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
+            Profile(nickname)
         }
     }
 }
-
-
-//
-//@Composable
-//fun CheckerScreen() {
-//    var checked by remember { mutableStateOf(true) }
-//
-//    CheckerView(checked = checked) {
-//        checked = !checked
-//    }
-//}
-//
-//@Composable
-//fun CheckerView(checked: Boolean, check: () -> Unit) {
-//    Column {
-//        Checkbox(
-//            checked = checked,
-//            onCheckedChange = { check() },
-//        )
-//        if(checked) Text(text = "체크됨!")
-//    }
-//}
