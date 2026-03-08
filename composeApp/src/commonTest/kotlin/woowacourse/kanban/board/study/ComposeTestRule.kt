@@ -87,7 +87,6 @@ class ComposeTestRule {
         /*
         onNodeWithTag("text").assertExists()
         onNodeWithTag("text").assertTextEquals("확인")
-
         */
         onNodeWithTag("text", useUnmergedTree = true).assertExists()
         onNodeWithTag("text", useUnmergedTree = true).assertTextEquals("확인")
@@ -101,8 +100,23 @@ class ComposeTestRule {
                 Text("버튼")
             }
         }
-        onNodeWithTag("버튼").printToLog("로그") // Text = '[확인, 버튼]'
-        onNodeWithTag("버튼").printToLog("확인") //
-        onNodeWithTag("text").assertTextEquals("확인")
+        onNodeWithTag("버튼", useUnmergedTree = true).printToLog("로그") // Text = '[확인, 버튼]'
+        onNodeWithTag("버튼").printToLog("확인")
+        onNodeWithTag("text", useUnmergedTree = true).assertTextEquals("확인")
+    }
+
+    @Test
+    fun `노드 병합4`() = runComposeUiTest {
+        setContent {
+            Button( {}, modifier = Modifier.testTag("버튼")) {
+                Text("확인", modifier = Modifier.testTag("text"))
+                Text("버튼")
+            }
+        }
+
+//        testTag = "[확인, 버튼]" 지정시 x
+
+        onNodeWithTag("버튼").assertTextEquals("확인", "버튼")
+            .printToLog("자식 병합 확인")
     }
 }
