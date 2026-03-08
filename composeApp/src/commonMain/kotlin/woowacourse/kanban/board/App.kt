@@ -1,41 +1,21 @@
 package woowacourse.kanban.board
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kanbanboard.composeapp.generated.resources.Res
-import kanbanboard.composeapp.generated.resources.compose_multiplatform
-import org.jetbrains.compose.resources.painterResource
-import woowacourse.kanban.board.component.Profile
-import woowacourse.kanban.board.component.Script
-import woowacourse.kanban.board.component.Tags
-import woowacourse.kanban.board.component.Title
+import woowacourse.kanban.board.component.TaskCard
 
 @Composable
 @Preview(showBackground = true)
@@ -78,39 +58,6 @@ fun App() {
 }
 
 @Composable
-fun TaskCard(
-    title: String,
-    script: String? = null,
-    tags: List<String>? = null,
-    nickname: String,
-) {
-    Card(
-        modifier = Modifier
-            .width(286.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = Color.White,
-        ),
-        border = BorderStroke(1.dp, CustomColor.CARD_BORDER.color),
-        shape = RoundedCornerShape(10.dp),
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(17.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            Title(title)
-            Script(script)
-            Tags(tags)
-            HorizontalDivider(
-                thickness = 1.dp,
-                color = CustomColor.DIVIDER.color
-            )
-            Profile(nickname)
-        }
-    }
-}
-
-@Composable
 fun CheckerScreen() {
     var checked by remember { mutableStateOf(true) }
 
@@ -126,6 +73,6 @@ fun CheckerView(checked: Boolean, check: () -> Unit) {
             checked = checked,
             onCheckedChange = { check() },
         )
-        if(checked) Text(text = "체크됨!")
+        if (checked) Text(text = "체크됨!")
     }
 }
