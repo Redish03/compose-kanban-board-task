@@ -2,6 +2,7 @@ package woowacourse.kanban.board.component
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
@@ -11,6 +12,7 @@ import woowacourse.kanban.board.CustomColor
 fun TaskTitle(title: String, modifier: Modifier = Modifier) {
     Text(
         text = title,
+        modifier = modifier,
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold,
         color = CustomColor.TITLE.color,

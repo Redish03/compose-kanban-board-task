@@ -3,6 +3,7 @@ package woowacourse.kanban.board.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -39,7 +40,7 @@ fun TaskCard(
         ) {
             TaskTitle(title)
             Script(script)
-            Tags(tags)
+            Tags(tags, tagsModifier = Modifier.fillMaxWidth())
             HorizontalDivider(
                 thickness = 1.dp,
                 color = CustomColor.DIVIDER.color,
