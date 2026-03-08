@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.sp
 import woowacourse.kanban.board.CustomColor
 
 @Composable
-fun Title(title: String) {
+fun TaskTitle(title: String, modifier: Modifier = Modifier) {
     Text(
         text = title,
         fontSize = 16.sp,

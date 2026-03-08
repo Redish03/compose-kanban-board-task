@@ -37,7 +37,7 @@ fun TaskCard(
                 .padding(17.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            Title(title)
+            TaskTitle(title)
             Script(script)
             Tags(tags)
             HorizontalDivider(
