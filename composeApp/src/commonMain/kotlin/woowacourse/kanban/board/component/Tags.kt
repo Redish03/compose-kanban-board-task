@@ -10,6 +10,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import woowacourse.kanban.board.CustomColor
@@ -20,11 +23,9 @@ fun Tags(tags: List<String>?, tagsModifier: Modifier = Modifier) {
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = tagsModifier
-//            modifier = Modifier
-//                .fillMaxWidth()
+            modifier = tagsModifier,
         ) {
-            val tagsCount = if(tags.size > 5) 5 else tags.size
+            val tagsCount = if (tags.size > 5) 5 else tags.size
             for (i in 0 until tagsCount) {
                 val filteredTag = if (tags[i].length > 5) tags[i].substring(0 until 5) else tags[i]
                 TagBox(filteredTag)
@@ -41,8 +42,7 @@ fun TagBox(filteredTag: String) {
                 color = CustomColor.TAG_BACKGROUND.color,
                 shape = RoundedCornerShape(14.dp),
             )
-            .padding(vertical = 4.dp, horizontal = 6.dp)
-        ,
+            .padding(vertical = 4.dp, horizontal = 6.dp),
     ) {
         Text(
             text = filteredTag,
@@ -50,4 +50,59 @@ fun TagBox(filteredTag: String) {
             color = CustomColor.TAG_TEXT.color,
         )
     }
+}
+
+@Composable
+@Preview
+private fun TagsPreview(@PreviewParameter(TagsPreviewProvider::class) tags: List<String>?, tagsModifier: Modifier = Modifier) {
+    if (tags != null) {
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            modifier = tagsModifier,
+        ) {
+            val tagsCount = if (tags.size > 5) 5 else tags.size
+            for (i in 0 until tagsCount) {
+                val filteredTag = if (tags[i].length > 5) tags[i].substring(0 until 5) else tags[i]
+                TagBox(filteredTag)
+            }
+        }
+    }
+}
+
+@Composable
+@Preview
+private fun TagBoxPreview(@PreviewParameter(TagBoxFilteredTagPreviewProvider::class) filteredTag: String) {
+    Box(
+        modifier = Modifier
+            .background(
+                color = CustomColor.TAG_BACKGROUND.color,
+                shape = RoundedCornerShape(14.dp),
+            )
+            .padding(vertical = 4.dp, horizontal = 6.dp),
+    ) {
+        Text(
+            text = filteredTag,
+            fontSize = 12.sp,
+            color = CustomColor.TAG_TEXT.color,
+        )
+    }
+}
+
+private class TagsPreviewProvider : PreviewParameterProvider<List<String>?> {
+    override val values = sequenceOf(
+        listOf("tag1", "tags 테스트", "여러 개의 태그"),
+        listOf("하나의 태그"),
+        listOf("", " ", "  공백 확인  ", "  앞공백", "뒤공백  "),
+    )
+}
+
+private class TagBoxFilteredTagPreviewProvider : PreviewParameterProvider<String> {
+    override val values = sequenceOf<String>(
+        "태그1",
+        "태그 2",
+        "태그 3",
+        "너무너무긴태그",
+        "최대다섯자",
+    )
 }
