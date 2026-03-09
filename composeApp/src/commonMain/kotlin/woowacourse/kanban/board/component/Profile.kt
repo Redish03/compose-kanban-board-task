@@ -64,6 +64,6 @@ private class ProfilePreviewParameterProvider() : PreviewParameterProvider<Strin
         "다이노",
         "프로필",
         "닉네임",
-        "아주아주매우매우긴닉네임"
+        "아주아주매우매우긴닉네임",
     )
 }

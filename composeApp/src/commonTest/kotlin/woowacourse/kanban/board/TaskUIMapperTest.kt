@@ -16,14 +16,14 @@ class TaskUIMapperTest {
                 taskTitle = "test1",
                 taskScript = "스크립트는 자바스크립트로 이루어져있는가",
                 tags = listOf("compose", "runTest"),
-                nickname = "Sam"
+                nickname = "Sam",
             ),
             Task(
                 taskTitle = "test2",
                 taskScript = "행성",
                 tags = listOf("compose", "coffee"),
-                nickname = "Sam"
-            )
+                nickname = "Sam",
+            ),
         )
 
         setContent {

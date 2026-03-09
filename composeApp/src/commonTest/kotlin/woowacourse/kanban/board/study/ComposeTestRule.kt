@@ -27,7 +27,7 @@ class ComposeTestRule {
         setContent {
             Column {
                 Button(
-                    onClick = { counter++ }
+                    onClick = { counter++ },
                 ) {
                     Text(counter.toString())
                 }
@@ -49,7 +49,7 @@ class ComposeTestRule {
         setContent {
             Column {
                 Button(
-                    onClick = { counter++ }
+                    onClick = { counter++ },
                 ) {
                     Text(counter.toString())
                 }
@@ -68,7 +68,7 @@ class ComposeTestRule {
     @Test
     fun `노드 병합1`() = runComposeUiTest {
         setContent {
-            Button( {}, modifier = Modifier.testTag("버튼")) {
+            Button({}, modifier = Modifier.testTag("버튼")) {
                 Text("확인")
                 Text("버튼")
             }
@@ -79,7 +79,7 @@ class ComposeTestRule {
     @Test
     fun `노드 병합2`() = runComposeUiTest {
         setContent {
-            Button( {}, modifier = Modifier.testTag("버튼")) {
+            Button({}, modifier = Modifier.testTag("버튼")) {
                 Text("확인", modifier = Modifier.testTag("text"))
                 Text("버튼")
             }
@@ -95,7 +95,7 @@ class ComposeTestRule {
     @Test
     fun `노드 병합3`() = runComposeUiTest {
         setContent {
-            Button( {}, modifier = Modifier.testTag("버튼")) {
+            Button({}, modifier = Modifier.testTag("버튼")) {
                 Text("확인", modifier = Modifier.testTag("text"))
                 Text("버튼")
             }
@@ -108,7 +108,7 @@ class ComposeTestRule {
     @Test
     fun `노드 병합4`() = runComposeUiTest {
         setContent {
-            Button( {}, modifier = Modifier.testTag("버튼")) {
+            Button({}, modifier = Modifier.testTag("버튼")) {
                 Text("확인", modifier = Modifier.testTag("text"))
                 Text("버튼")
             }

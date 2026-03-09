@@ -17,7 +17,7 @@ class TaskCardTest {
                 title = "안드로이드",
                 script = "UI 테스트",
                 tags = listOf("Compose", "Test"),
-                nickname = "Sam"
+                nickname = "Sam",
             )
         }
 
@@ -38,7 +38,7 @@ class TaskCardTest {
                 title = title,
                 script = script,
                 tags = emptyTags,
-                nickname = nickname
+                nickname = nickname,
             )
         }
 
@@ -57,7 +57,7 @@ class TaskCardTest {
                 title = title,
                 script = script,
                 tags = tags,
-                nickname = nickname
+                nickname = nickname,
             )
         }
 
@@ -76,7 +76,7 @@ class TaskCardTest {
                 title = title,
                 script = script,
                 tags = tags,
-                nickname = nickname
+                nickname = nickname,
             )
         }
 
@@ -95,7 +95,7 @@ class TaskCardTest {
                 title = title,
                 script = script,
                 tags = tags,
-                nickname = nickname
+                nickname = nickname,
             )
         }
 
@@ -110,7 +110,7 @@ class TaskCardTest {
                 title = "hello",
                 script = "tags test",
                 tags = listOf("1", "2", "3", "4", "5", "6"),
-                nickname = "Samuel"
+                nickname = "Samuel",
             )
         }
 
