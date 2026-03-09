@@ -33,7 +33,8 @@ fun Tags(tags: List<String>, tagsModifier: Modifier = Modifier) {
                         .background(
                             color = CustomColor.TAG_BACKGROUND.color,
                             shape = RoundedCornerShape(14.dp),
-                        ).padding(vertical = 4.dp, horizontal = 6.dp),
+                        ).padding(vertical = 4.dp, horizontal = 6.dp)
+                        .testTag("tag_item"),
                 )
             }
         }
