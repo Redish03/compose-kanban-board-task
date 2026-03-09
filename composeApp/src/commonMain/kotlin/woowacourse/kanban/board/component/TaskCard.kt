@@ -13,6 +13,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.CustomColor
 
@@ -38,8 +39,8 @@ fun TaskCard(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             TaskTitle(title)
-            if (script != "") Script(script)
-            if (tags != emptyList<String>()) Tags(tags, tagsModifier = Modifier.fillMaxWidth())
+            if (script.isNotBlank()) Script(script, modifier = Modifier.testTag("script_area"))
+            if (tags.isNotEmpty()) Tags(tags, tagsModifier = Modifier.fillMaxWidth().testTag("tags_area"))
             // 해당 부분에 로직이 들어가는게 맞을까?
             HorizontalDivider(
                 thickness = 1.dp,
