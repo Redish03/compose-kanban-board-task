@@ -25,10 +25,8 @@ fun Tags(tags: List<String>, tagsModifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(4.dp),
             modifier = tagsModifier,
         ) {
-            val tagsCount = if (tags.size > 5) 5 else tags.size
-            for (i in 0 until tagsCount) {
-                val filteredTag = if (tags[i].length > 5) tags[i].substring(0 until 5) else tags[i]
-                TagBox(filteredTag)
+            tags.take(5).forEach { tag ->
+                TagBox(tag.take(5))
             }
         }
     }
