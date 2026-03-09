@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TaskBackground(function: @Composable () -> Unit) {
+fun TaskBackground(generateTask: @Composable () -> Unit) {
     FlowRow(
         modifier = Modifier
             .fillMaxSize()
@@ -18,6 +18,6 @@ fun TaskBackground(function: @Composable () -> Unit) {
         horizontalArrangement = Arrangement.spacedBy(52.dp),
         verticalArrangement = Arrangement.spacedBy(20.dp),
     ) {
-        function()
+        generateTask()
     }
 }
