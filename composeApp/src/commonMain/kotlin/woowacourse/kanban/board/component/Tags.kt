@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
@@ -26,21 +27,23 @@ fun Tags(tags: List<String>, tagsModifier: Modifier = Modifier) {
             modifier = tagsModifier,
         ) {
             tags.take(5).forEach { tag ->
-                TagBox(tag.take(5))
+                TagBox(
+                    tag.take(5),
+                    Modifier
+                        .background(
+                            color = CustomColor.TAG_BACKGROUND.color,
+                            shape = RoundedCornerShape(14.dp),
+                        ).padding(vertical = 4.dp, horizontal = 6.dp),
+                )
             }
         }
     }
 }
 
 @Composable
-fun TagBox(filteredTag: String) {
+fun TagBox(filteredTag: String, tagsModifier: Modifier = Modifier) {
     Box(
-        modifier = Modifier
-            .background(
-                color = CustomColor.TAG_BACKGROUND.color,
-                shape = RoundedCornerShape(14.dp),
-            )
-            .padding(vertical = 4.dp, horizontal = 6.dp),
+        modifier = tagsModifier,
     ) {
         Text(
             text = filteredTag,
@@ -52,8 +55,8 @@ fun TagBox(filteredTag: String) {
 
 @Composable
 @Preview
-private fun TagsPreview(@PreviewParameter(TagsPreviewProvider::class) tags: List<String>?, tagsModifier: Modifier = Modifier) {
-    if (tags != null) {
+private fun TagsPreview(@PreviewParameter(TagsPreviewProvider::class) tags: List<String>, tagsModifier: Modifier = Modifier) {
+    if (tags != emptyList<String>()) {
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalArrangement = Arrangement.spacedBy(4.dp),
