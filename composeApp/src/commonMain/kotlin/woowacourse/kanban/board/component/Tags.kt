@@ -53,6 +53,7 @@ fun TagBox(filteredTag: String, tagsModifier: Modifier = Modifier) {
     }
 }
 
+// 원래 함수가 바뀔 때마다 Preview 함수도 바꿔야함.
 @Composable
 @Preview
 private fun TagsPreview(@PreviewParameter(TagsPreviewProvider::class) tags: List<String>, tagsModifier: Modifier = Modifier) {
@@ -62,10 +63,16 @@ private fun TagsPreview(@PreviewParameter(TagsPreviewProvider::class) tags: List
             verticalArrangement = Arrangement.spacedBy(4.dp),
             modifier = tagsModifier,
         ) {
-            val tagsCount = if (tags.size > 5) 5 else tags.size
-            for (i in 0 until tagsCount) {
-                val filteredTag = if (tags[i].length > 5) tags[i].substring(0 until 5) else tags[i]
-                TagBox(filteredTag)
+            tags.take(5).forEach { tag ->
+                TagBox(
+                    tag.take(5),
+                    Modifier
+                        .background(
+                            color = CustomColor.TAG_BACKGROUND.color,
+                            shape = RoundedCornerShape(14.dp),
+                        ).padding(vertical = 4.dp, horizontal = 6.dp)
+                        .testTag("tag_item"),
+                )
             }
         }
     }
