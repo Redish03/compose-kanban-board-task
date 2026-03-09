@@ -43,6 +43,8 @@ fun App() {
             profileName = "다이노",
         )
     )
+
+    // Task UI를 생성하는 로직을 Background에 람다로 전달했지만, 더 좋은 방법은 없을까? 람다까지 해야할까?
     TaskBackground { TaskUIMapper().createTaskUI(tasks) }
 }
 
