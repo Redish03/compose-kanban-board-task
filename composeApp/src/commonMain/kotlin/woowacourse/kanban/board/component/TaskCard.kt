@@ -19,8 +19,8 @@ import woowacourse.kanban.board.CustomColor
 @Composable
 fun TaskCard(
     title: String,
-    script: String? = null,
-    tags: List<String>? = null,
+    script: String,
+    tags: List<String>,
     nickname: String,
 ) {
     Card(
@@ -38,8 +38,9 @@ fun TaskCard(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             TaskTitle(title)
-            Script(script)
-            Tags(tags, tagsModifier = Modifier.fillMaxWidth())
+            if (script != "") Script(script)
+            if (tags != emptyList<String>()) Tags(tags, tagsModifier = Modifier.fillMaxWidth())
+            // 해당 부분에 로직이 들어가는게 맞을까?
             HorizontalDivider(
                 thickness = 1.dp,
                 color = CustomColor.DIVIDER.color,

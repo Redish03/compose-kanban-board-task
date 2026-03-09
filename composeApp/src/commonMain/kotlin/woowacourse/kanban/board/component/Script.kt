@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.sp
 import woowacourse.kanban.board.CustomColor
 
 @Composable
-fun Script(script: String?, modifier: Modifier = Modifier) {
-    if (script != null) Text(
+fun Script(script: String, modifier: Modifier = Modifier) {
+    Text(
         text = script,
         modifier = modifier,
         fontSize = 14.sp,
